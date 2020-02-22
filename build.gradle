@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.appium:java-client:7.3.0'
+    implementation 'org.testng:testng:7.0.0'
+}
+
+test{
+    useTestNG()
+}

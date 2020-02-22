@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.trello.OpenApp" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-02-22T15:10:17" hostname="DESKTOP-U7V5MJ9" time="0.003">
+  <properties/>
+  <testcase name="openUp" classname="com.telran.trello.OpenApp" time="0.003"/>
+  <system-out><![CDATA[Application opened
+]]></system-out>
+  <system-err><![CDATA[Feb 22, 2020 5:10:17 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
