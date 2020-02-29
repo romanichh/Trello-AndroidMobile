@@ -1,19 +1,19 @@
-package com.telran.trello;
+package com.telran.trello.manager;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class OpenApp {
+public class ApplicationManager {
+
     AppiumDriver driver;
 
-    @BeforeClass
-    public void setUp() throws MalformedURLException {
+    SessionHelper session;
+    TrelloPage page;
+
+    public void init() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("platformName", "Android");
@@ -27,19 +27,20 @@ public class OpenApp {
 
         driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
+        session = new SessionHelper(driver);
+        page = new TrelloPage(driver);
     }
 
-    @Test
-    public void openUp() {
-        System.out.println("Application opened");
+    public SessionHelper getSession() {
+        return session;
     }
 
-    @AfterClass
-    public void tearDown() throws InterruptedException {
+    public TrelloPage getPage() {
+        return page;
+    }
+
+    public void stop() throws InterruptedException {
         Thread.sleep(3000);
         driver.quit();
-        
     }
-
-
 }
