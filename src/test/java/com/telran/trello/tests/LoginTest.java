@@ -11,13 +11,15 @@ public class LoginTest extends TestBase {
         app.getSession().pause(6000);
         app.getSession().fillLogInForm(new User().withUserName("romich87").withPassword("romanich1987"));
         app.getSession().tapLoginButton();
-        app.getSession().pause(8000);
-        app.getSession().button1();
-        app.getSession().pause(8000);
-        app.getSession().clickOnName();
-        app.getSession().pause(8000);
 
-        Assert.assertTrue(app.getPage().isTaskPresent());
+        app.getSession().pause(8000);
+        app.getSession().confirmAtlassianLogin(new User().withUserName("romich87").withPassword("romanich1987"));
+//        app.getSession().button1();
+//        app.getSession().pause(8000);
+//        app.getSession().clickOnName();
+//        app.getSession().pause(8000);
+
+//        Assert.assertTrue(app.getPage().isTaskPresent());
     }
 
 

@@ -3,6 +3,7 @@ package com.telran.trello.manager;
 import com.telran.trello.model.User;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class SessionHelper extends HelperBase {
 
@@ -36,6 +37,23 @@ public class SessionHelper extends HelperBase {
         tap(By.xpath("//*[contains(text(), 'romich87')]"));
         tap(By.xpath("//*[contains(text(), 'romich87')]"));
         tap(By.xpath("//*[contains(text(), 'romich87')]"));
+    }
+
+    public void confirmAtlassianLogin(User user) throws InterruptedException {
+        WebElement popUp = driver.findElement(By.id("parentPanel"));
+        popUp.findElement(By.xpath(".//*[@resource-id='android:id/button1']"));
+        pause(8000);
+        if (isElementPresent(By.xpath(".//*[@resource-id='username']"))) {
+            type(By.xpath(".//*[@resource-id='username']"), "romich87@gmail.com");
+        }
+        pause(3000);
+        tap(By.xpath(".//*[@resource-id='login-submit']"));
+        pause(3000);
+        type(By.xpath("//*[@resource-id='password']"),user.getPassword());
+        driver.hideKeyboard();
+        pause(10000);
+        tap(By.xpath("//*[@resource-id='login-submit']"));
+        pause(10000);
     }
 
 
