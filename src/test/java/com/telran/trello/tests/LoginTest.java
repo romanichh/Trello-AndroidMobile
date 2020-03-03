@@ -14,7 +14,7 @@ public class LoginTest extends TestBase {
 
         app.getSession().pause(8000);
         app.getSession().confirmAtlassianLogin(new User().withUserName("romich87").withPassword("romanich1987"));
-//        app.getSession().button1();
+
 //        app.getSession().pause(8000);
 //        app.getSession().clickOnName();
 //        app.getSession().pause(8000);

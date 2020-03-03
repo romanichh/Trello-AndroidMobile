@@ -28,11 +28,6 @@ public class SessionHelper extends HelperBase {
 //        tap(By.xpath("//*[contains(text(), 'LOGIN')]"));
     }
 
-    public void button1() {
-//        tap(By.id("button1"));
-        tap(By.xpath("//*[contains(text(), 'LOG IN')]"));
-    }
-
     public void clickOnName() {
         tap(By.xpath("//*[contains(text(), 'romich87')]"));
         tap(By.xpath("//*[contains(text(), 'romich87')]"));
@@ -41,19 +36,29 @@ public class SessionHelper extends HelperBase {
 
     public void confirmAtlassianLogin(User user) throws InterruptedException {
         WebElement popUp = driver.findElement(By.id("parentPanel"));
-        popUp.findElement(By.xpath(".//*[@resource-id='android:id/button1']"));
-        pause(8000);
+        popUp.findElement(By.xpath(".//*[@resource-id='android:id/button1']")).click();
+        pause(20000);
         if (isElementPresent(By.xpath(".//*[@resource-id='username']"))) {
+            driver.findElement(By.xpath(".//*[@resource-id='username']")).clear();
             type(By.xpath(".//*[@resource-id='username']"), "romich87@gmail.com");
+
+            pause(3000);
+            tap(By.xpath(".//*[@resource-id='login-submit']"));
+            pause(3000);
+            type(By.xpath("//*[@resource-id='password']"), user.getPassword());
+            driver.hideKeyboard();
+            pause(10000);
+            tap(By.xpath("//*[@resource-id='login-submit']"));
+            pause(20000);
         }
-        pause(3000);
-        tap(By.xpath(".//*[@resource-id='login-submit']"));
-        pause(3000);
-        type(By.xpath("//*[@resource-id='password']"),user.getPassword());
-        driver.hideKeyboard();
-        pause(10000);
-        tap(By.xpath("//*[@resource-id='login-submit']"));
-        pause(10000);
+        if (isElementPresent(By.xpath("//android.view.View[@class='android.widget.Image']"))) {
+            tap(By.xpath("//android.view.View[@class='android.widget.Image']"));
+            pause(20000);
+        }
+//        if (isElementPresent(By.xpath("//android.view.View[@content-desc='romich87@gmail.com']"))) {
+//            tap(By.xpath("//android.view.View[@content-desc='romich87@gmail.com']"));
+//            pause(20000);
+//        }
     }
 
 
